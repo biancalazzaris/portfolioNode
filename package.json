@@ -1,0 +1,20 @@
+{
+  "name": "portfolionode",
+  "version": "1.0.0",
+  "description": "portfolio node aula 3 PW2",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "npm",
+    "express",
+    "node",
+    "js"
+  ],
+  "author": "bianca.lazzaris",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
