@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 4 - Exemplo EJS</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <section>
+        <h1>OLÁ EJS</h1>
+        <p>Estamos funcionando!! </p>
+
+        <h3>Renderizando variáveis...</h3>
+        <h4><%= name %></h4>
+        <h4><%= faculdade%></h4>
+
+        <p>
+            A turma está no modelo: <strong> <%= remoto%> </strong><br>
+            O curso que fazemos é <strong><%= curso%></strong>
+        </p>
+            
+        <button id="bt"><a href="/alunos">Visualizar alunos</a></button>
+
+        <h3>Condicionais</h3>
+        <% if (!exibirNotificacao) { %>
+            <strong>Error:</strong> 
+            Não foi possível exibir a informação solicitada;
+            <% } else { %>
+                <strong>Correto:</strong>
+                Tudo certo, renderizando conforme esperado...
+            <% } %>
+
+    </section>
+
+</body>
+
+</html>

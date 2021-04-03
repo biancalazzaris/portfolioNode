@@ -1,36 +1,48 @@
 const { request, response } = require('express');
 const express = require('express');
-
+//importando o express no projeto
 const app = express()
 
-app.get('/', function(req, res) {
-    res.send('<h1>Página principal</h1>');
-})
+//instanciando o EJS
+app.set('view engine', 'ejs');
+app.use(express.static('public'));
 
-app.get('/perfil', function(req, res){
-    const nome = 'Bianca Lazzaris';
-    const idade = 25;
-    const sexo = 'Mulher';
-    res.send(`<h4>Olá, eu sou a ${nome}, tenho ${idade} anos, sou ${sexo}</h4>`);
+//criar minhas rotas 
+app.get('/:name?/:faculdade?', (req,res) => {
+    let name = req.params.name;
+    let faculdade = req.params.faculdade;
+    let msg = true;
+    // let name = 'Maria da Silva';
+    // let faculdade = 'IELUSC';
+
+    res.render('index', {
+        name, 
+        faculdade,
+        remoto: true,
+        curso: 'Desenvolvimento Web2',
+        exibirNotificacao: msg,
+    });
 });
 
-app.get('/graduacao', function(req, res){
-    res.send('<h4>Página sobre seu curso de graduação!</h4>');
+app.get('/alunos', (req,res) => {
+    let alunos = [
+        {id:1, nome: 'Bianca', genero: 'Feminino'},
+        {id:1, nome: 'Misael', genero: 'Masculino'},
+        {id:1, nome: 'Victor', genero: 'Masculino'},
+        {id:1, nome: 'Lucas', genero: 'Masculino'},
+        {id:1, nome: 'Alexandre', genero: 'Masculino'},
+    ];
+    
+    res.render('alunos', {
+        pessoas: alunos
+    });
+
 });
 
-app.get('/trabalho', function(req, res){
-    res.send('<h4>Página sobre o seu trabalho</h4>');
-});
-
-app.get('/contato', function(req, res){
-    res.send('<h4>Entre em contato</h4>');
-});
-
-
-app.listen(3000, (erro) =>  {
+app.listen(5000, (erro) =>  {
     if (erro) {
         console.log(erro, 'ops, servidor não conseguiu subir, tente novamente.');
     }else {
-        console.log('servidor rodando no endereço: http://localhost:3000')
+        console.log('servidor rodando no endereço: http://localhost:5000')
     }
 });
