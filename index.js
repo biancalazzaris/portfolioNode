@@ -1,9 +1,12 @@
 const express = require('express');
 const app = express()
 
+const bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded( { extended: true }));
+app.use(bodyParser.json());
+
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
-
 
 app.get('/artigos', (req, res) => {
     res.render('article')
@@ -12,6 +15,16 @@ app.get('/artigos', (req, res) => {
 app.get('/novo-artigo', (req, res) => {
     res.render('new')
 });
+
+app.post('/salvar', (req, res) => {
+    let title = req.body.titulo;
+    let description = req.body.descricao;
+    let datatime = req.body.datahora;
+    console.log(`Dados do formulario salvo: Titulo: ${title} Data e hora: ${datatime}  Descricao: ${description} `);
+
+    res.send(`Dados do formulario salvo: Titulo: ${title} Data e hora: ${datatime}  Descricao: ${description}`)
+});
+
 
 
 app.get('/:name?/:faculdade?', (req,res) => {
@@ -29,8 +42,6 @@ app.get('/:name?/:faculdade?', (req,res) => {
         exibirNotificacao: msg,
     });
 });
-
-
 
 app.listen(5000, (erro) =>  {
     if (erro) {
