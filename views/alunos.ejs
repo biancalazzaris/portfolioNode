@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+
+<%- include ('./partials/header.ejs') %>
+<%- include ('./partials/navbar.ejs') %>
+<h3>ForEach</h3>
+<ul>
+    <% pessoas.forEach(function(item) { %>
+        <li>
+            <%= item.nome %> | <%= item.genero %>
+        </li>
+    <% }); %>
+</ul>
+
+<a href="/"><button>Voltar para página principal</button></a>
+
+<%- include ('./partials/footer.ejs') %>

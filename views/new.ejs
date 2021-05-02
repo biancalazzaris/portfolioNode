@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<%- include ('./partials/header.ejs') %>
+<%- include ('./partials/navbar.ejs') %>
+    <section class="container mt-3">
+        <h3>NOVO ARTIGO</h3>
+    </section>
+    <section class="container mt-3">
+        <form action="/salvar" method="POST">
+            <label for="articleTopic">Título do artigo:</label>
+            <div class="form-group row">
+                <div class="col">
+                    <input 
+                        type="text" 
+                        class="form-control" 
+                        id="articleTopic" 
+                        name="titulo">
+                </div>
+                <div class="col">
+                    <input 
+                        class="form-control" 
+                        type="datetime-local" 
+                        value="2011-08-19T13:45:00"
+                        id="datetime-local-input"
+                        name="datahora">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="topicDescription">Descreva seu Artigo:</label>
+                <textarea 
+                    class="form-control" 
+                    id="topicDescription" 
+                    rows="7" 
+                    cols="20"
+                    name="descricao"
+                ></textarea>
+            </div>
+            <button 
+                type="submit" 
+                class="btn btn-primary">Enviar
+            </button>
+        </form>
+    </section>
+<%- include ('./partials/footer.ejs') %>

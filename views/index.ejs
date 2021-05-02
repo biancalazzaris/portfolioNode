@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<%- include ('./partials/header.ejs') %>
+<%- include ('./partials/navbar.ejs') %>
+
+    <section class="container mt-3">
+            <h1>OLÁ EJS</h1>
+            <p>Estamos funcionando!! </p>
+
+            <h3>Renderizando variáveis...</h3>
+            <h4>
+                <%= name %>
+            </h4>
+            <h4>
+                <%= faculdade%>
+            </h4>
+
+        <p>
+            A turma está no modelo: <strong>
+                <%= remoto%>
+            </strong><br>
+            O curso que fazemos é <strong>
+                <%= curso%>
+            </strong>
+        </p>
+
+        <!-- <button type="button" class="btn btn-secondary" href="/alunos">Visualizar alunos</button> -->
+
+        <h3>Condicionais</h3>
+        <% if (!exibirNotificacao) { %>
+            <strong>Error:</strong>
+            Não foi possível exibir a informação solicitada;
+            <% } else { %>
+                <strong>Correto:</strong>
+                Tudo certo, renderizando conforme esperado...
+                <% } %>
+    </section>
+
+<%- include ('./partials/footer.ejs') %>
